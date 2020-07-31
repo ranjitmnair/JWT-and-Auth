@@ -1,7 +1,9 @@
 const router =require('express').Router();
 const verify=require('./verifyToken');
+
 const Post=require('../models/Posts');
 const {postValidation}=require('../validation');
+
 
 router.get('/',verify,(req,res)=>{
     res.send(req.user);
@@ -25,5 +27,6 @@ router.post('/',verify,async(req,res)=>{
         res.status(400).send(error);        
     }
 })
+
 
 module.exports=router;
