@@ -31,6 +31,19 @@ const schema=Joi.object({
  return schema.validate(data);
 }
 
+const postValidation= (data)=>{
+const schema=Joi.object({
+    title:Joi.string()
+        .min(5)
+        .required(),
+    description:Joi.string()
+        .min(20)
+        .required()   
+ });
+ return schema.validate(data);
+}
+
 
 module.exports.registerValidation=registerValidation;
 module.exports.loginValidation=loginValidation;
+module.exports.postValidation=postValidation;

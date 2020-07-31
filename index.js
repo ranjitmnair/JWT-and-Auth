@@ -1,6 +1,9 @@
 const express=require('express');
 const mongoose=require('mongoose');
 const app=express();
+const dotenv=require('dotenv')
+
+dotenv.config();
 
 //connecting to db
 
@@ -14,10 +17,12 @@ app.use(express.json());
 //importing routes
 
 const authRoute=require('./routes/auth');
+const postsRoute=require('./routes/posts');
 
 
 //route middlewares
 app.use('/api/user',authRoute);
+app.use('/api/posts',postsRoute);
 
 
 
